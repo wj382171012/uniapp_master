@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/tabs/tab1",
+    "pages/tabs/tab2",
+    "pages/tabs/tab3",
+    "pages/tabs/tab4"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#007AFF",
+    "borderStyle": "black",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/tabs/tab1",
+        "iconPath": "static/component.png",
+        "selectedIconPath": "static/componentHL.png",
+        "text": "内置组件"
+      },
+      {
+        "pagePath": "pages/tabs/tab2",
+        "iconPath": "static/api.png",
+        "selectedIconPath": "static/apiHL.png",
+        "text": "聊天"
+      },
+      {
+        "pagePath": "pages/tabs/tab3",
+        "iconPath": "static/extui.png",
+        "selectedIconPath": "static/extuiHL.png",
+        "text": "扩展组件"
+      },
+      {
+        "pagePath": "pages/tabs/tab4",
+        "iconPath": "static/template.png",
+        "selectedIconPath": "static/templateHL.png",
+        "text": "模板"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

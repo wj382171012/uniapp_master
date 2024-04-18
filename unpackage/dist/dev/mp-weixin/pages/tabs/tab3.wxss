@@ -1,0 +1,13 @@
+
+.container {
+	font-size: 14px;
+	line-height: 24px;
+}
+.tab_active {
+	width: 140rpx;
+	font-size: 12px;
+	border-radius: 18px;
+	background: #124141;
+	text-align: center;
+}
+

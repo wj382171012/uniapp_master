@@ -1,0 +1,14 @@
+
+.container {
+	padding: 20px 20px;
+}
+.input_chat {
+	height: 80rpx;
+	font-size: 12px;
+	border-radius: 50px;
+	border: 0px solid #124141;
+	background: white;
+	text-align: start;
+	padding-left: 20px;
+}
+

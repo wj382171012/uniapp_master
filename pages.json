@@ -1,0 +1,66 @@
+{
+
+	"pages": [{
+			"path": "pages/tabs/tab1",
+			"style": {
+				"navigationBarTitleText": "tab1"
+			}
+		},
+		{
+			"path": "pages/tabs/tab2",
+			"style": {
+				"navigationBarTitleText": "tab2"
+			}
+		},
+		{
+			"path": "pages/tabs/tab3",
+			"style": {
+				"navigationBarTitleText": "tab3"
+			}
+		},
+		{
+			"path": "pages/tabs/tab4",
+			"style": {
+				"navigationBarTitleText": "tab4"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#161920",
+		"backgroundColor": "#161920",
+		"app-plus": {
+			"titleNView": false
+		}
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#007AFF",
+		"borderStyle": "black",
+		"backgroundColor": "#FFFFFF",
+		"list": [{
+				"pagePath": "pages/tabs/tab1",
+				"iconPath": "static/component.png",
+				"selectedIconPath": "static/componentHL.png",
+				"text": "内置组件"
+			},
+			{
+				"pagePath": "pages/tabs/tab2",
+				"iconPath": "static/api.png",
+				"selectedIconPath": "static/apiHL.png",
+				"text": "聊天"
+			}, {
+				"pagePath": "pages/tabs/tab3",
+				"iconPath": "static/extui.png",
+				"selectedIconPath": "static/extuiHL.png",
+				"text": "扩展组件"
+			}, {
+				"pagePath": "pages/tabs/tab4",
+				"iconPath": "static/template.png",
+				"selectedIconPath": "static/templateHL.png",
+				"text": "模板"
+			}
+		]
+	}
+}

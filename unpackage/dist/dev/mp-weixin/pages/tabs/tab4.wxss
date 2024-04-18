@@ -1,0 +1,21 @@
+
+.container {
+	font-size: 14px;
+	line-height: 24px;
+}
+.uni-bg-red {
+	height: 200rpx;
+	background: red;
+	text-align: center;
+}
+.uni-bg-green {
+	height: 200rpx;
+	background: green;
+	text-align: center;
+}
+.uni-bg-blue {
+	height: 200rpx;
+	background: blue;
+	text-align: center;
+}
+

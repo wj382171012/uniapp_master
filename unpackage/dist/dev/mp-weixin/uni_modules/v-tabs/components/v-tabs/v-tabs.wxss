@@ -1,0 +1,43 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.v-tabs.data-v-fa47ca0a {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.v-tabs__container.data-v-fa47ca0a {
+  min-width: 100%;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.v-tabs__container-item.data-v-fa47ca0a {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  z-index: 10;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+.v-tabs__container-item.disabled.data-v-fa47ca0a {
+  opacity: 0.5;
+  color: #999;
+}
+.v-tabs__container-line.data-v-fa47ca0a {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.v-tabs__container-pills.data-v-fa47ca0a {
+  position: absolute;
+  z-index: 9;
+}
+.v-tabs__container-line.animation.data-v-fa47ca0a, .v-tabs__container-pills.animation.data-v-fa47ca0a {
+  transition: all 0.3s linear;
+}
+
