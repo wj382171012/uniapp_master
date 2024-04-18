@@ -1,14 +1,23 @@
-
-.container {
-	padding: 20px 20px;
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.root {
+  display: flex;
+  flex-direction: column;
 }
-.input_chat {
-	height: 80rpx;
-	font-size: 12px;
-	border-radius: 50px;
-	border: 0px solid #124141;
-	background: white;
-	text-align: start;
-	padding-left: 20px;
+.container {
+  padding: 0 20px;
+}
+ .uni-easyinput__content {
+  height: 80rpx;
+  font-size: 12px;
+  border-radius: 50px;
+  border: 0px solid #124141;
+  background: white;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.content {
+  margin-top: 20rpx;
 }
 

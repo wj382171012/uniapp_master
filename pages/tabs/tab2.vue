@@ -1,19 +1,32 @@
 <template>
-	<view class="container">
-		<uni-easyinput class="uni-mt-5" :inputBorder="false" suffixIcon="search" v-model="inputText"
-			placeholder="搜索你想了解的内容" @iconClick="iconClick">
-		</uni-easyinput>
-		<text>{{result}}</text>
+	<view class="root">
+		<header-with-search></header-with-search>
+
+		<view class="content">
+			<view v-if="!recognitioning" class="">
+				<image src="../../static/icon_AI.png" mode="aspectFill"
+					style="width: 68rpx; height: 54rpx; background-color: #eeeeee;">
+			</view>
+			<view v-else class="content">
+				<text>{{result}}</text>
+			</view>
+		</view>
 	</view>
 </template>
 
 <script>
-import chat from '../request/api/chat';
+	import chat from '../request/api/chat';
+	import HeaderWithSearch from '../components/header-with-search/header-with-search';
+	
 	export default {
+		components: {
+			HeaderWithSearch
+		},
 		data() {
 			return {
 				inputText: "",
-				result:''
+				result: '12412421',
+				recognitioning: false,
 			}
 		},
 		onUnload() {
@@ -26,7 +39,7 @@ import chat from '../request/api/chat';
 			},
 			iconClick() {
 				console.log('点击搜索:' + this.inputText);
-				chat.sendMessage(this.inputText, (res)=>{
+				chat.sendMessage(this.inputText, (res) => {
 					console.log('AI 返回数据:' + res);
 					this.result += res;
 				})
@@ -36,8 +49,12 @@ import chat from '../request/api/chat';
 </script>
 
 <style lang="scss">
+	.root {
+		display: flex;
+		flex-direction: column;
+	}
 	.container {
-		padding: 20px 20px;
+		padding: 0 20px;
 		// background: #161920;
 	}
 
@@ -48,5 +65,10 @@ import chat from '../request/api/chat';
 		border: 0px solid #124141;
 		background: white;
 		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.content {
+		margin-top: 20rpx;
 	}
 </style>

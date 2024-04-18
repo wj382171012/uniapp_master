@@ -1,13 +1,9 @@
 
-.container {
-	font-size: 14px;
-	line-height: 24px;
+.root {
+	display: flex;
+	flex-direction: column;
 }
-.tab_active {
-	width: 140rpx;
-	font-size: 12px;
-	border-radius: 18px;
-	background: #124141;
-	text-align: center;
+.container {
+	padding: 0 20px;
 }
 

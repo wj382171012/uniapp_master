@@ -9875,7 +9875,143 @@ exports.default = _default;
 /* 50 */,
 /* 51 */,
 /* 52 */,
-/* 53 */,
+/* 53 */
+/*!**************************************************************************************!*\
+  !*** C:/Users/38217/Documents/HBuilderProjects/TestUIVue2/pages/request/api/chat.js ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ 23));
+var _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/createClass */ 24));
+var _classPrivateFieldGet2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/classPrivateFieldGet */ 41));
+function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
+function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
+var _baseUrl_ws = /*#__PURE__*/new WeakMap();
+var _ChatGPT_token = /*#__PURE__*/new WeakMap();
+var Chat = /*#__PURE__*/function () {
+  function Chat() {
+    (0, _classCallCheck2.default)(this, Chat);
+    _classPrivateFieldInitSpec(this, _baseUrl_ws, {
+      writable: true,
+      value: 'ws://47.96.232.53:8081/chat'
+    });
+    _classPrivateFieldInitSpec(this, _ChatGPT_token, {
+      writable: true,
+      value: '152|IqKxfNf1ZgkbbPuOTTeWheaJ3Q4KO2zjSSj0FTnU465647be'
+    });
+    this.socketOpen = false;
+    this.socketMsgQueue = [];
+    this.socketId = 0;
+    this.sessionId = '';
+    this._callback = null;
+    var _this = this;
+    uni.connectSocket({
+      url: (0, _classPrivateFieldGet2.default)(this, _baseUrl_ws)
+    });
+
+    //监听WebSocket 打开状态
+    uni.onSocketOpen(function (res) {
+      console.log('WebSocket连接已打开！');
+      _this.socketOpen = true;
+      _this._sendInitMessage();
+      for (var i = 0; i < _this.socketMsgQueue.length; i++) {
+        sendSocketMessage(_this.socketMsgQueue[i]);
+      }
+      _this.socketMsgQueue = [];
+    });
+
+    //监听WebSocket 连接异常
+    uni.onSocketError(function (res) {
+      console.log('WebSocket连接打开失败，请检查！');
+    });
+
+    //监听WebSocket 服务器内容
+    uni.onSocketMessage(function (result) {
+      console.log('收到服务器内容：' + result.data);
+      var res = JSON.parse(result.data);
+      if (res.type == "connected") {
+        _this.socketId = res.content;
+      } else if (res.type == "answer") {
+        _this._callback(res.content);
+      } else if (res.type == "new_session") {
+        var data = JSON.parse(res.content);
+        _this.sessionId = data.sessionId;
+      } else if (res.type == "error") {} else if (res.type == "stop") {} else if (res.type == "finish") {}
+    });
+
+    //监听 WebSocket 关闭状态
+    uni.onSocketClose(function (res) {
+      console.log('WebSocket 已关闭！');
+    });
+  }
+  (0, _createClass2.default)(Chat, [{
+    key: "_sendInitMessage",
+    value: function _sendInitMessage() {
+      var j = {
+        "token": '152|IqKxfNf1ZgkbbPuOTTeWheaJ3Q4KO2zjSSj0FTnU465647be',
+        "sessionId": this.sessionId
+      };
+      var msg = {
+        "type": "auth",
+        "content": j
+      };
+      uni.sendSocketMessage({
+        data: JSON.stringify(msg)
+      });
+    }
+  }, {
+    key: "sendMessage",
+    value: function sendMessage(question, callback) {
+      console.log('发送数据 isOpen:' + this.socketOpen + ' 内容: ' + question);
+      this._callback = callback;
+      var q = {
+        "question": question,
+        "aiCode": "xinghuoai",
+        "useApp": 0,
+        "sessionMode": 1,
+        "sessionId": this.sessionId
+      };
+      var msg = {
+        "type": "chat",
+        "content": q
+      };
+      if (this.socketOpen) {
+        uni.sendSocketMessage({
+          data: JSON.stringify(msg)
+        });
+      } else {
+        this.socketMsgQueue.push(msg);
+      }
+    }
+
+    // 注意这里有时序问题，
+    // 如果 uni.connectSocket 还没回调 uni.onSocketOpen，而先调用 uni.closeSocket，那么就做不到关闭 WebSocket 的目的。
+    // 必须在 WebSocket 打开期间调用 uni.closeSocket 才能关闭。
+  }, {
+    key: "stop",
+    value: function stop() {
+      console.log('发送数据 isOpen:' + this.socketOpen);
+      if (this.socketOpen) {
+        uni.closeSocket();
+      }
+    }
+  }]);
+  return Chat;
+}();
+var _default = new Chat();
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
 /* 54 */,
 /* 55 */,
 /* 56 */,
@@ -9898,7 +10034,8 @@ exports.default = _default;
 /* 73 */,
 /* 74 */,
 /* 75 */,
-/* 76 */
+/* 76 */,
+/* 77 */
 /*!**********************************************************************************************************!*\
   !*** C:/Users/38217/Documents/HBuilderProjects/TestUIVue2/uni_modules/v-tabs/components/v-tabs/utils.js ***!
   \**********************************************************************************************************/
@@ -9928,7 +10065,7 @@ function startMicroTask(callback) {
 }
 
 /***/ }),
-/* 77 */
+/* 78 */
 /*!**********************************************************************************************************!*\
   !*** C:/Users/38217/Documents/HBuilderProjects/TestUIVue2/uni_modules/v-tabs/components/v-tabs/props.js ***!
   \**********************************************************************************************************/
@@ -10041,7 +10178,6 @@ var _default2 = {
 exports.default = _default2;
 
 /***/ }),
-/* 78 */,
 /* 79 */,
 /* 80 */,
 /* 81 */,
@@ -10054,7 +10190,16 @@ exports.default = _default2;
 /* 88 */,
 /* 89 */,
 /* 90 */,
-/* 91 */
+/* 91 */,
+/* 92 */,
+/* 93 */,
+/* 94 */,
+/* 95 */,
+/* 96 */,
+/* 97 */,
+/* 98 */,
+/* 99 */,
+/* 100 */
 /*!****************************************************************************************************************!*\
   !*** C:/Users/38217/Documents/HBuilderProjects/TestUIVue2/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \****************************************************************************************************************/

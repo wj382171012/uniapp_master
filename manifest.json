@@ -56,22 +56,25 @@
         },
         "usingComponents" : true
     },
-	"h5" : {
-	    "devServer" : {
-	        "port" : 5173, //浏览器运行端口
-	        "https" : false,
-	        "proxy" : {
-	            "/aaaaaaa" : {
-	                "target" : "https://hu.acotech.my:50011",
-	                "changeOrigin" : true,
-	                "secure" : false,
-	                "ws" : false,
-	                "pathRewrite" : {
-	                    "^/aaaaaaa" : ""
-	                }
-	            }
-	        }
-	    }
-	},
-    "vueVersion" : "2"
+    "h5" : {
+        "devServer" : {
+            "port" : 5173, //浏览器运行端口
+            "https" : false,
+            "proxy" : {
+                "/aaaaaaa" : {
+                    "target" : "https://hu.acotech.my:50011",
+                    "changeOrigin" : true,
+                    "secure" : false,
+                    "ws" : false,
+                    "pathRewrite" : {
+                        "^/aaaaaaa" : ""
+                    }
+                }
+            }
+        }
+    },
+    "vueVersion" : "2",
+    "uniStatistics" : {
+        "version" : "2"
+    }
 }

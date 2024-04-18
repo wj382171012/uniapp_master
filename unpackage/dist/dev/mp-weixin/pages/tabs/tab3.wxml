@@ -1,1 +1,1 @@
-<view class="container"><input class="uni-input" focus="{{true}}" placeholder="自动获得焦点"/><z-tabs vue-id="226dfe40-1" list="{{list}}" tab-width="140rpx" bar-width="{{0}}" data-event-opts="{{[['^change',[['tabsChange']]]]}}" bind:change="__e" bind:__l="__l"></z-tabs></view>
+<view class="root"><header-with-search vue-id="226dfe40-1" bind:__l="__l"></header-with-search></view>

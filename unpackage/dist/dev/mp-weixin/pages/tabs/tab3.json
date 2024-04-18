@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "tab3",
-  "usingComponents": {}
+  "usingComponents": {
+    "header-with-search": "/pages/components/header-with-search/header-with-search"
+  }
 }

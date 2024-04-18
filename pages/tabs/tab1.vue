@@ -1,27 +1,30 @@
 <template>
-	<view class="container">
-		<input class="uni-input" focus placeholder="自动获得焦点" />
-		<v-tabs :tabs="list" v-model="swiperCurrent" line-color="#C7B099" active-color="#C7B099" :pills="true"
-			pillsColor="#253532" line-height="0" activeColor="#fff" pills-border-radius="50rpx" style="width: 100%"
-			ref="tabs" @change="tabsChange"></v-tabs>
+	<view class="root_tab1">
+		<header-with-search></header-with-search>
+		<view class="container">
+			<v-tabs :tabs="list" v-model="swiperCurrent" line-color="#C7B099" active-color="#C7B099" :pills="true"
+				pillsColor="#253532" line-height="0" activeColor="#fff" pills-border-radius="50rpx" bgColor="#00000000" ref="tabs" @change="tabsChange"></v-tabs>
 
-		<swiper class="swiper" :current="swiperCurrent" @transition="swiperTransition"
-			@animationfinish="swiperAnimationfinish">
-			<swiper-item v-for="(item, index) in list" :key="index">
-				<view class="swiper-item-view">
-					{{item}}
-				</view>
-			</swiper-item>
-		</swiper>
-
+			<swiper class="swiper" :current="swiperCurrent" @animationfinish="swiperAnimationfinish">
+				<swiper-item v-for="(item, index) in list" :key="index">
+					<view class="swiper-item-view">
+						{{item}}
+					</view>
+				</swiper-item>
+			</swiper>
+		</view>
 	</view>
 </template>
 
 <script>
 	import common from '../request/api/common.js';
 	import user from '../request/api/user.js';
+	import HeaderWithSearch from '../components/header-with-search/header-with-search';
 
 	export default {
+		components: {
+			HeaderWithSearch
+		},
 		data() {
 			return {
 				list: ['军事', '国内', '新闻新闻', '军事', '国内', '新闻', '军事', '国内', '新闻'],
@@ -30,6 +33,7 @@
 				localSrc: '/static/c1.png',
 			}
 		},
+
 		onLoad() {
 			this.getBanner()
 
@@ -39,16 +43,11 @@
 			tabsChange(index) {
 				console.log('tabs 点击监听 index:' + index)
 				this.swiperCurrent = index;
+			},
 			
-			},
-			//swiper滑动中
-			swiperTransition(e) {
-				this.$refs.tabs.setDx(e.detail.dx);
-			},
 			//swiper滑动结束
 			swiperAnimationfinish(e) {
 				this.swiperCurrent = e.detail.current;
-				this.$refs.tabs.unlockDx();
 			},
 			// 生成随机颜色
 			_getRandomColor() {
@@ -68,7 +67,8 @@
 			},
 			getBanner() {
 				common.getBanner().then((res) => {
-					console.log(res);
+					console.log('getBanner返回结果:' + res);
+
 				})
 			}
 		}
@@ -76,9 +76,13 @@
 </script>
 
 <style>
+	.root_tab1 {
+		display: flex;
+		flex-direction: column;
+	}
+
 	.container {
-		font-size: 14px;
-		line-height: 24px;
+		padding: 0 40rpx;
 	}
 
 	.input {

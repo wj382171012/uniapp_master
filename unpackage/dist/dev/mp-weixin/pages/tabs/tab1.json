@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "tab1",
   "usingComponents": {
-    "v-tabs": "/uni_modules/v-tabs/components/v-tabs/v-tabs"
+    "v-tabs": "/uni_modules/v-tabs/components/v-tabs/v-tabs",
+    "header-with-search": "/pages/components/header-with-search/header-with-search"
   }
 }

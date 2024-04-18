@@ -1,17 +1,17 @@
 <template>
-	<view class="container">
-	<input class="uni-input" focus placeholder="自动获得焦点" />
-	<z-tabs :list="list" tab-width="140rpx" @change="tabsChange" :bar-width="0"></z-tabs>
+	<view class="root">
+	<header-with-search></header-with-search>
 	</view>
 </template>
 
 <script>
+	import HeaderWithSearch from '../components/header-with-search/header-with-search';
 	export default {
+		components: {
+			HeaderWithSearch
+		},
 		data() {
-			return {
-				// href: 'https://uniapp.dcloud.io/component/README?id=uniui',
-				list: ['tab1', 'tab2', 'tab3', 'tab4', 'tab5', 'tab6', 'tab7', 'tab8']
-			}
+
 		},
 		methods: {
 
@@ -20,16 +20,11 @@
 </script>
 
 <style>
-	.container {
-		font-size: 14px;
-		line-height: 24px;
+	.root {
+		display: flex;
+		flex-direction: column;
 	}
-
-	.tab_active {
-		width: 140rpx;
-		font-size: 12px;
-		border-radius: 18px;
-		background: #124141;
-		text-align: center;
+	.container {
+		padding: 0 20px;
 	}
 </style>

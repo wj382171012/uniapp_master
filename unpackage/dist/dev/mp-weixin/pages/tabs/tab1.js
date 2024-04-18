@@ -101,7 +101,7 @@ var components
 try {
   components = {
     vTabs: function () {
-      return Promise.all(/*! import() | uni_modules/v-tabs/components/v-tabs/v-tabs */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/v-tabs/components/v-tabs/v-tabs")]).then(__webpack_require__.bind(null, /*! @/uni_modules/v-tabs/components/v-tabs/v-tabs.vue */ 71))
+      return Promise.all(/*! import() | uni_modules/v-tabs/components/v-tabs/v-tabs */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/v-tabs/components/v-tabs/v-tabs")]).then(__webpack_require__.bind(null, /*! @/uni_modules/v-tabs/components/v-tabs/v-tabs.vue */ 72))
     },
   }
 } catch (e) {
@@ -185,8 +185,15 @@ var _user = _interopRequireDefault(__webpack_require__(/*! ../request/api/user.j
 //
 //
 //
-//
+var HeaderWithSearch = function HeaderWithSearch() {
+  __webpack_require__.e(/*! require.ensure | pages/components/header-with-search/header-with-search */ "pages/components/header-with-search/header-with-search").then((function () {
+    return resolve(__webpack_require__(/*! ../components/header-with-search/header-with-search */ 81));
+  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+};
 var _default = {
+  components: {
+    HeaderWithSearch: HeaderWithSearch
+  },
   data: function data() {
     return {
       list: ['军事', '国内', '新闻新闻', '军事', '国内', '新闻', '军事', '国内', '新闻'],
@@ -203,16 +210,10 @@ var _default = {
     tabsChange: function tabsChange(index) {
       console.log('tabs 点击监听 index:' + index);
       this.swiperCurrent = index;
-      this.login();
-    },
-    //swiper滑动中
-    swiperTransition: function swiperTransition(e) {
-      this.$refs.tabs.setDx(e.detail.dx);
     },
     //swiper滑动结束
     swiperAnimationfinish: function swiperAnimationfinish(e) {
       this.swiperCurrent = e.detail.current;
-      this.$refs.tabs.unlockDx();
     },
     // 生成随机颜色
     _getRandomColor: function _getRandomColor() {
@@ -232,7 +233,7 @@ var _default = {
     },
     getBanner: function getBanner() {
       _common.default.getBanner().then(function (res) {
-        console.log(res);
+        console.log('getBanner返回结果:' + res);
       });
     }
   }

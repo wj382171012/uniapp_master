@@ -28,8 +28,8 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#161920",
-		"backgroundColor": "#161920",
+		"navigationBarBackgroundColor": "#00000000",
+		"backgroundColor": "#00000000",
 		"app-plus": {
 			"titleNView": false
 		}
@@ -38,7 +38,7 @@
 		"color": "#7A7E83",
 		"selectedColor": "#007AFF",
 		"borderStyle": "black",
-		"backgroundColor": "#FFFFFF",
+		"backgroundColor": "#C1E6C6",
 		"list": [{
 				"pagePath": "pages/tabs/tab1",
 				"iconPath": "static/component.png",

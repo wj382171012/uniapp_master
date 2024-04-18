@@ -1,0 +1,1 @@
+<view class="container_header_with_search"><uni-easyinput class="uni-mt-5" vue-id="314f4f97-1" inputBorder="{{false}}" suffixIcon="search" placeholder="搜索你想了解的内容" value="{{inputText}}" data-event-opts="{{[['^iconClick',[['iconClick']]],['^input',[['__set_model',['','inputText','$event',[]]]]]]}}" bind:iconClick="__e" bind:input="__e" bind:__l="__l"></uni-easyinput></view>
