@@ -4,6 +4,10 @@ class Chat {
 	#ChatGPT_token = '152|IqKxfNf1ZgkbbPuOTTeWheaJ3Q4KO2zjSSj0FTnU465647be';
 
 	constructor() {
+		this.init()
+	}
+
+	init() {
 		this.socketOpen = false;
 		this.socketMsgQueue = [];
 		this.socketId = 0;

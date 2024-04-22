@@ -1,6 +1,6 @@
 <template>
 	<view class="root">
-	<header-with-search></header-with-search>
+		<header-with-search @iconSearchClick="searchClick"></header-with-search>
 	</view>
 </template>
 
@@ -14,7 +14,10 @@
 
 		},
 		methods: {
+			searchClick(msg) {
+				console.log('Tab3 点击搜索:' + msg);
 
+			},
 		}
 	}
 </script>
@@ -24,6 +27,7 @@
 		display: flex;
 		flex-direction: column;
 	}
+
 	.container {
 		padding: 0 20px;
 	}

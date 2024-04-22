@@ -1,6 +1,6 @@
 <template>
 	<view class="root">
-		<header-with-search></header-with-search>
+		<header-with-search @iconSearchClick="searchClick"></header-with-search>
 		<view class="container">
 			<v-tabs :tabs="list" v-model="swiperCurrent" line-color="#C7B099" active-color="#C7B099" :pills="true"
 				pillsColor="#253532" line-height="0" activeColor="#fff" pills-border-radius="50rpx" bgColor="#00000000" ref="tabs" @change="tabsChange"></v-tabs>
@@ -39,6 +39,10 @@
 
 		},
 		methods: {
+			searchClick(msg) {
+				console.log('Tab4 点击搜索:' + msg);
+			
+			},
 			//tabs 点击监听
 			tabsChange(index) {
 				console.log('tabs 点击监听 index:' + index)

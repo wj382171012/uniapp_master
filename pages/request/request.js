@@ -1,26 +1,29 @@
 class Request {
 
-	BASEURL = '/aaaaaaa';
+
+	// BASEURL = '/test';
+	BASEURL = '/testChatGPT';
 	// BASEURL = 'https://hu.acotech.my:50011/';
 
 	#header = {
-				'Content-Type': 'application/json',
-				'X-ENV-TYPE':'development',
-				'X-SERVICEID': 's1',
-				'X-CLIENTTYPE': '1',
-				'X-P-CODE': '',
-				'X-LANGUAGE': "en",
-				'X-TOKEN': "",
-				'X-SYS-VERSION': '',
-				'Version-Name': '',
-				'Version-Code': '',
-				'X-EQUIPMENT-TYPE': 'atlas',
-				'Accept-Language': "en",
-				'X-AGENT-TYPE': 'android',
-				'X-AGENT-VERSION': '0.0.0',
-				'X-APP-ID': 'atlas',
-				'AUTHORIZATION': "",
-			};
+		'Content-Type': 'application/json',
+		'X-ENV-TYPE': 'development',
+		'X-SERVICEID': 's1',
+		'X-CLIENTTYPE': '1',
+		'X-P-CODE': '',
+		'X-LANGUAGE': "en",
+		'X-TOKEN': "",
+		'X-SYS-VERSION': '',
+		'Version-Name': '',
+		'Version-Code': '',
+		'X-EQUIPMENT-TYPE': 'atlas',
+		'Accept-Language': "en",
+		'X-AGENT-TYPE': 'android',
+		'X-AGENT-VERSION': '0.0.0',
+		'X-APP-ID': 'atlas',
+		'AUTHORIZATION': "",
+		'token': "6505910052670709761",
+	};
 
 	request(param) {
 		// 请求参数

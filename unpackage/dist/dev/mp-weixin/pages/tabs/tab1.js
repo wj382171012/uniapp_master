@@ -185,21 +185,54 @@ var _user = _interopRequireDefault(__webpack_require__(/*! ../request/api/user.j
 //
 //
 //
+//
+//
+//
+//
 var HeaderWithSearch = function HeaderWithSearch() {
   __webpack_require__.e(/*! require.ensure | pages/components/header-with-search/header-with-search */ "pages/components/header-with-search/header-with-search").then((function () {
     return resolve(__webpack_require__(/*! ../components/header-with-search/header-with-search */ 81));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
+var ItemImageText = function ItemImageText() {
+  __webpack_require__.e(/*! require.ensure | pages/components/item-image-text/item-image-text */ "pages/components/item-image-text/item-image-text").then((function () {
+    return resolve(__webpack_require__(/*! ../components/item-image-text/item-image-text.vue */ 112));
+  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+};
 var _default = {
   components: {
-    HeaderWithSearch: HeaderWithSearch
+    HeaderWithSearch: HeaderWithSearch,
+    ItemImageText: ItemImageText
   },
   data: function data() {
     return {
-      list: ['军事', '国内', '新闻新闻', '军事', '国内', '新闻', '军事', '国内', '新闻'],
-      swiperCurrent: 0,
-      src: 'https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/shuijiao.jpg',
-      localSrc: '/static/c1.png'
+      listTab: ['军事', '国内', '新闻新闻'],
+      current: 0,
+      categories: [{
+        'image': '/static/c1.png',
+        'text': '军事'
+      }, {
+        'image': '/static/c2.png',
+        'text': '国内'
+      }, {
+        'image': '/static/c3.png',
+        'text': '新闻新闻'
+      }, {
+        'image': '/static/c4.png',
+        'text': '军事'
+      }, {
+        'image': '/static/c6.png',
+        'text': '国内'
+      }, {
+        'image': '/static/c7.png',
+        'text': '新闻新闻'
+      }, {
+        'image': '/static/c8.png',
+        'text': '国内'
+      }, {
+        'image': '/static/c9.png',
+        'text': '新闻新闻'
+      }]
     };
   },
   onLoad: function onLoad() {
@@ -209,27 +242,7 @@ var _default = {
     //tabs 点击监听
     tabsChange: function tabsChange(index) {
       console.log('tabs 点击监听 index:' + index);
-      this.swiperCurrent = index;
-    },
-    //swiper滑动结束
-    swiperAnimationfinish: function swiperAnimationfinish(e) {
-      this.swiperCurrent = e.detail.current;
-    },
-    // 生成随机颜色
-    _getRandomColor: function _getRandomColor() {
-      var rgb = [];
-      for (var i = 0; i < 3; ++i) {
-        var color = Math.floor(Math.random() * 256).toString(16);
-        color = color.length == 1 ? '0' + color : color;
-        rgb.push(color);
-      }
-      return '#' + rgb.join('');
-    },
-    login: function login() {
-      //用户信息
-      _user.default.login().then(function (res) {
-        console.log(res);
-      });
+      this.current = index;
     },
     getBanner: function getBanner() {
       _common.default.getBanner().then(function (res) {

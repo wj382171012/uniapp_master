@@ -1,17 +1,21 @@
 <template>
 	<view class="root_tab1">
-		<header-with-search></header-with-search>
+		<header-with-search @iconSearchClick="searchClick"></header-with-search>
 		<view class="container">
-			<v-tabs :tabs="list" v-model="swiperCurrent" line-color="#C7B099" active-color="#C7B099" :pills="true"
-				pillsColor="#253532" line-height="0" activeColor="#fff" pills-border-radius="50rpx" bgColor="#00000000" ref="tabs" @change="tabsChange"></v-tabs>
 
-			<swiper class="swiper" :current="swiperCurrent" @animationfinish="swiperAnimationfinish">
-				<swiper-item v-for="(item, index) in list" :key="index">
-					<view class="swiper-item-view">
-						{{item}}
+			<view class="content1">
+				<view style="padding-left: 40rpx;">
+					<v-tabs :tabs="listTab" v-model="current" line-color="#C7B099" active-color="#C7B099" :pills="true"
+						pillsColor="#253532" line-height="0" activeColor="#fff" pills-border-radius="50rpx"
+						bgColor="#00000000" ref="tabs" @change="tabsChange"></v-tabs>
+				</view>
+				<view class="content1_categories">
+					<view v-for="(item, index) in categories">
+						<item-image-text :image="item.image" :text="item.text"></item-image-text>
 					</view>
-				</swiper-item>
-			</swiper>
+				</view>
+
+			</view>
 		</view>
 	</view>
 </template>
@@ -20,50 +24,66 @@
 	import common from '../request/api/common.js';
 	import user from '../request/api/user.js';
 	import HeaderWithSearch from '../components/header-with-search/header-with-search';
+	import ItemImageText from '../components/item-image-text/item-image-text.vue';
+
 
 	export default {
 		components: {
-			HeaderWithSearch
+			HeaderWithSearch,
+			ItemImageText
 		},
 		data() {
 			return {
-				list: ['军事', '国内', '新闻新闻', '军事', '国内', '新闻', '军事', '国内', '新闻'],
-				swiperCurrent: 0,
-				src: 'https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/shuijiao.jpg',
-				localSrc: '/static/c1.png',
+				listTab: ['军事', '国内', '新闻新闻'],
+				current: 0,
+				categories: [{
+						'image': '/static/c1.png',
+						'text': '军事'
+					},
+					{
+						'image': '/static/c2.png',
+						'text': '国内'
+					},
+					{
+						'image': '/static/c3.png',
+						'text': '新闻新闻'
+					},
+					{
+						'image': '/static/c4.png',
+						'text': '军事'
+					},
+					{
+						'image': '/static/c6.png',
+						'text': '国内'
+					},
+					{
+						'image': '/static/c7.png',
+						'text': '新闻新闻'
+					}, {
+						'image': '/static/c8.png',
+						'text': '国内'
+					},
+					{
+						'image': '/static/c9.png',
+						'text': '新闻新闻'
+					},
+				],
 			}
 		},
 
 		onLoad() {
-			this.getBanner()
+			// this.getBanner()
 
 		},
 		methods: {
+			searchClick(msg) {
+				console.log('Tab1 点击搜索:' + msg);
+				
+			},
 			//tabs 点击监听
 			tabsChange(index) {
 				console.log('tabs 点击监听 index:' + index)
-				this.swiperCurrent = index;
-			},
-			
-			//swiper滑动结束
-			swiperAnimationfinish(e) {
-				this.swiperCurrent = e.detail.current;
-			},
-			// 生成随机颜色
-			_getRandomColor() {
-				const rgb = [];
-				for (let i = 0; i < 3; ++i) {
-					let color = Math.floor(Math.random() * 256).toString(16)
-					color = color.length == 1 ? '0' + color : color
-					rgb.push(color)
-				}
-				return '#' + rgb.join('');
-			},
-			login() {
-				//用户信息
-				user.login().then((res) => {
-					console.log(res);
-				})
+				this.current = index;
 			},
 			getBanner() {
 				common.getBanner().then((res) => {
@@ -82,7 +102,7 @@
 	}
 
 	.container {
-		padding: 0 40rpx;
+		padding: 0 0;
 	}
 
 	.input {
@@ -97,17 +117,14 @@
 
 	}
 
-	.swiper {
-		height: 600rpx;
+	.content1 {
+		padding: 40rpx 20rpx 0 0rpx;
 	}
 
-	.swiper-item-view {
-		background-color: #007AFF;
-		height: 600rpx;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		color: white;
-		font-size: 50rpx;
+	.content1_categories {
+		display: grid;
+		grid-template-columns: repeat(4, 25%);
+		grid-template-rows: 160rpx;
+		padding: 10rpx 0rpx 0 0rpx;
 	}
 </style>

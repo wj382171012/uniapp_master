@@ -1,0 +1,1 @@
+<view class="root_item_image_text"><image class="item_image" src="{{image}}" mode="aspectFit"></image><text class="item_text">{{text}}</text></view>

@@ -17,7 +17,7 @@
 		methods: {
 			iconClick() {
 				console.log('点击搜索:' + this.inputText);
-
+				this.$emit('iconSearchClick', this.inputText);
 			},
 		},
 		options: {
@@ -29,12 +29,13 @@
 <style>
 	.container_header_with_search {
 		width: 100%;
-		height: 320rpx;
-		background: #F2E6C6;
-		padding-top:80rpx;
+		height: 280rpx;
+		background: url('../../../static/icon_header_bg.jpg') no-repeat;
+		background-size: cover;
+		padding-top: 80rpx;
 	}
 
-	::v-deep .uni-easyinput__content {
+	/* ::v-deep .uni-easyinput__content {
 		width: 665rpx;
 		height: 80rpx;
 		font-size: 12px;
@@ -45,8 +46,8 @@
 		padding-right: 10px;
 		margin-left: 40rpx;
 		
-	}
-	
+	} */
+
 	/deep/ .uni-easyinput__content {
 		width: 665rpx;
 		height: 80rpx;
@@ -57,6 +58,6 @@
 		padding-left: 10px;
 		padding-right: 10px;
 		margin-left: 40rpx;
-		
+
 	}
 </style>

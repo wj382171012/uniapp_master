@@ -4,7 +4,7 @@
 	flex-direction: column;
 }
 .container {
-	padding: 0 40rpx;
+	padding: 0 0;
 }
 .input {
 	height: 45px;
@@ -16,16 +16,13 @@
 	margin-left: 20px;
 	margin-right: 20px;
 }
-.swiper {
-	height: 600rpx;
+.content1 {
+	padding: 40rpx 20rpx 0 0rpx;
 }
-.swiper-item-view {
-	background-color: #007AFF;
-	height: 600rpx;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: white;
-	font-size: 50rpx;
+.content1_categories {
+	display: grid;
+	grid-template-columns: repeat(4, 25%);
+	grid-template-rows: 160rpx;
+	padding: 10rpx 0rpx 0 0rpx;
 }
 
